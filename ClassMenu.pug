@@ -1,0 +1,52 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title InterLabs Testing
+        style.
+            body{
+                background-color: forestgreen;
+                color: yellow;
+            }
+    body
+        div#app
+            h1.text-center InterLabs Class Preview
+            .row
+                .card(v-for="lab in classes")
+                    h4.text-center {{lab.cName}}
+                    ul.text-center
+                        li(v-for="dir in lab.classes")
+                            a(:href="dir+'/index.html'") {{dir}}
+    foot
+        script(type='module').
+            import { createApp, ref, onMounted } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+            createApp({
+                setup(){
+                    const classes = ref(!{allClasses});
+                    onMounted(()=>console.log(classes));
+                    return {classes};
+                }
+            }).mount('#app')
+        style.
+            .text-center{ text-align: center; }
+            .card{
+                background-color: white;
+                color: black;
+                box-shadow: 4px 4px yellow;
+                border-radius: 5px;
+                min-width: 20%;
+                margin-bottom: 3vh
+            }
+            .row{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap:3vw;
+                flex-wrap: wrap;
+            }
+            ul{
+                list-style: none;
+                padding:0;
+            }
