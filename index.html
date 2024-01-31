@@ -14,7 +14,7 @@
   </head>
   <body>
     <div id="app">
-      <h1 class="text-center">Labs Inter Retos:</h1>
+      <h1 class="text-center">Prueba De Demo Inter Retos:</h1>
       <div class="row">
         <div class="card" v-for="lab in classes">
           <h4 class="text-center">{{lab.cName}}</h4>
@@ -28,17 +28,65 @@
       </div>
     </div>
 
+    <!-- <div id="appAccess">
+      <h1 class="text-center">Labs</h1>
+      <div class="row">
+        <div class="card" v-for="lab in classes">
+          <h4 class="text-center">{{lab.cName}}</h4>
+          <ul class="text-center">
+            <li v-for="dir in lab.classes"><a :href="dir+'/index.html'">{{dir}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+
   </body>
   <foot>   
     <script type="module">
       import { createApp, ref, onMounted } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
       createApp({
           setup(){
-              const classes = ref([{"cName":"Links","classes":["BIOL3105-2" , "BIOL3105-4"]}]);       
+              const classes = ref([{"cName":"Links","classes":["BIOL3105-2" , "BIOL3105-4" ]}]);       
               onMounted(()=>console.log(classes));
               return {classes};
           }   
-  }).mount('#app')
+      }).mount('#app')
+
+       createApp({
+          setup(){
+              const classes = ref([{"cName":"Links","classes":["BIOL3405-2","BIOL1103-4","BIOL3105-4", "CHEM1111-3","CHEM1111-1","PHYS3001-2","BIOL1103-2","PHYS3001-1","BIOL1104-4",]}]);       
+              onMounted(()=>console.log(classes));
+              return {classes};
+          }   
+      }).mount('#appbeta')
+
+      createApp({
+          setup(){
+            //missing until we finished them CHEM 2212 Lab-3 , Phys 3002 Lab#4
+              const classes = ref([{"cName":"Links","classes":[ "BIOL3405-3","BIOL3405-4","BIOL3105-2","CHEM2212-3"]}]);       
+              onMounted(()=>console.log(classes));
+              return {classes};
+          }   
+      }).mount('#appMay')
+
+      createApp({
+          setup(){
+            
+              const classes = ref([{"cName":"Links","classes":[ "CHEM1111-4","PHYS3001-4","BIOL3105-1","BIOL3105-3","BIOL1104-5", "BIOL3105-5"  ]}]);       
+              onMounted(()=>console.log(classes));
+              return {classes};
+          }   
+      }).mount('#appSeptember')
+
+      // createApp({
+      //     setup(){
+      //      
+      //         const classes = ref([{"cName":"Links","classes":[ "ACCESS-7" ]}]);       
+      //         onMounted(()=>console.log(classes));
+      //         return {classes};
+      //     }   
+      // }).mount('#appAccess')
+
     </script>
     <style>
       .text-center{ text-align: center; }
